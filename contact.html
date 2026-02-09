@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css"> <style>
+        /* CSS RIÊNG CHO TRANG CONTACT */
+        .contact-page {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #b5c4b5; /* Màu xanh sage đồng bộ */
+            padding: 50px;
+            border-radius: 4px;
+        }
+
+        .contact-title {
+            font-size: 2.2rem;
+            color: #4a6d4a;
+            border-bottom: 2px solid #4a6d4a;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            letter-spacing: 0.3em;
+        }
+
+        .contact-desc {
+            margin-bottom: 40px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Form Style */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .form-label {
+            width: 250px;
+            font-weight: bold;
+            padding-top: 10px;
+            color: #4a6d4a;
+        }
+
+        .form-label span {
+            background: #e74c3c;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+
+        .form-input {
+            flex: 1;
+        }
+
+        .form-input input, .form-input select, .form-input textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-input textarea { height: 150px; }
+
+        .submit-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .submit-btn button {
+            background-color: #4a6d4a;
+            color: #fff;
+            padding: 15px 60px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn button:hover { background-color: #385238; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .form-group { flex-direction: column; }
+            .form-label { width: 100%; margin-bottom: 10px; }
+            .contact-container { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo" class="logo-img">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="work.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </label>
+                <div class="menu-items">
+                    <label for="menu-toggle" class="menu-close-btn"><i class="fas fa-arrow-left"></i> 戻る</label>
+                    <a href="homepage.html">ホーム</a>
+                    <a href="building.html">新築について</a>
+        			<a href="reform.html">リフォームについて</a>
+        			<a href="work.html">施工事例</a>
+        			<a href="question.html">よくある質問FAQ</a>
+        			<a href="staff.html">スタッフ紹介</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-container">
+            <h2 class="contact-title">お問い合わせ</h2>
+            <p class="contact-desc">
+                住まいづくりに関するご相談、お見積り依頼など、お気軽にお問い合わせください。<br>
+                以下のフォームに必要事項をご記入の上、「送信する」ボタンを押してください。
+            </p>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <div class="form-label">お名前<span>必須</span></div>
+                    <div class="form-input"><input type="text" placeholder="例：読売 太郎" required></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-label">メールアドレス<span>必須</span></div>
+                    <div class="form-input"><input type="email" placeholder="example@mail.com" required></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-label">お問い合わせ項目<span>必須</span></div>
+                    <div class="form-input">
+                        <select required>
+                            <option value="">選択してください</option>
+                            <option value="1">新築のご相談</option>
+                            <option value="2">リフォームのご相談</option>
+                            <option value="3">お見積り依頼</option>
+                            <option value="4">その他</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-label">内容<span>必須</span></div>
+                    <div class="form-input"><textarea placeholder="ご記入ください" required></textarea></div>
+                </div>
+
+<div class="submit-btn">
+    <button type="button" onclick="handleFormSubmit()">送 信 す る</button>
+</div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+	<script>
+    function handleFormSubmit() {
+       
+        const name = document.querySelector('input[placeholder="例：読売 太郎"]').value;
+        const email = document.querySelector('input[type="email"]').value;
+        const message = document.querySelector('textarea').value;
+
+ 
+        if (!name || !email || !message) {
+            alert("必須項目をすべて入力してください。"); 
+            return;
+        }
+
+        
+        const isConfirm = confirm("入力した内容で送信してもよろしいですか？"); 
+        
+        if (isConfirm) {
+            
+            const btn = document.querySelector('.submit-btn button');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...'; // Đang gửi...
+            btn.style.opacity = "0.7";
+            btn.disabled = true;
+
+           
+            setTimeout(() => {
+                alert("お問い合わせありがとうございました。担当者より折り返しご連絡させていただきます。"); 
+              
+                document.querySelector('.contact-form').reset();
+                btn.innerHTML = '送 信 す る';
+                btn.style.opacity = "1";
+                btn.disabled = false;
+            }, 2000);
+        }
+    }
+
+   
+    document.getElementById('menu-toggle').addEventListener('change', function() {
+        document.body.style.overflow = this.checked ? 'hidden' : '';
+    });
+</script>
+</body>
+</html>

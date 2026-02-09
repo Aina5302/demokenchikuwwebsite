@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施工事例 - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <style>
+        :root {
+            --main-green: #4a6d4a;
+            --light-green: #b5c4b5;
+            --bg-soft: #f8faf8;
+            --text-gray: #666;
+        }
+
+        .works-main { padding: 60px 0; background-color: #fff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .page-header { text-align: center; margin-bottom: 50px; }
+        .page-header h2 { font-size: 2.4rem; color: var(--main-green); letter-spacing: 0.2em; margin-bottom: 10px; }
+        .page-header p { color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Filter Section */
+        .filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; }
+        .filter-btn {
+            background: #fff; border: 1px solid #ddd; padding: 10px 25px;
+            border-radius: 30px; cursor: pointer; font-size: 0.85rem;
+            transition: 0.3s; color: var(--text-gray);
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--main-green); color: #fff; border-color: var(--main-green); }
+
+        /* Bento Grid */
+        .bento-group { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 20px; margin-bottom: 100px; transition: 0.5s; }
+        .bento-item { position: relative; border-radius: 12px; overflow: hidden; background: #eee; }
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .bento-item:hover img { transform: scale(1.08); }
+
+        .bento-lg { grid-column: span 2; grid-row: span 2; }
+        .bento-md { grid-column: span 2; grid-row: span 1; }
+        .bento-sm { grid-column: span 1; grid-row: span 1; }
+
+        /* Stats & Story */
+        .case-card { background: var(--bg-soft); padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .case-card h3 { color: var(--main-green); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--light-green); padding-bottom: 10px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .stat-item span { font-size: 0.75rem; color: #999; display: block; }
+        .stat-item b { font-size: 0.9rem; color: #333; }
+
+        .story-box { background: #fff; border: 1px solid #eee; padding: 25px; display: flex; align-items: center; }
+        .story-content { font-size: 0.88rem; line-height: 1.8; color: #444; }
+        .story-content strong { color: var(--main-green); display: block; margin-bottom: 5px; }
+
+        @media (max-width: 850px) {
+            .bento-group { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+            .bento-md, .bento-lg { grid-column: span 2; }
+        }
+		.work-popup {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+                <span class="logo-text"></span>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+          <div class="hamburger-menu">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+    
+    <div class="menu-items">
+        <label for="menu-toggle" class="menu-close-btn">
+            <i class="fas fa-arrow-left"></i> 戻る
+        </label>
+        
+        <a href="homepage.html">ホーム</a>
+        <a href="building.html">新築について</a>
+        <a href="reform.html">リフォームについて</a>
+        <a href="work.html">施工事例</a>
+        <a href="question.html">よくある質問FAQ</a>
+        <a href="staff.html">スタッフ紹介</a>
+    </div>
+</div>
+        </div>
+    </header>
+
+    <main class="works-main">
+        <div class="container">
+            <div class="page-header">
+                <h2>Works</h2>
+                <p>想いをかたちにした、私たちの建築実績</p>
+            </div>
+
+          <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">ALL</button>
+    <button class="filter-btn" data-filter="A邸">A邸</button>
+    <button class="filter-btn" data-filter="Bマンション">Bマンション</button>
+    <button class="filter-btn" data-filter="歯科">久保田歯科医院</button>
+</div>
+
+<div class="bento-group" data-category="A邸">
+    <div class="bento-item bento-lg">
+        <a href="建築写真素材/A邸/写真/01.jpg" class="work-popup" title="A邸：光と風が抜ける大空間LDK">
+            <img src="建築写真素材/A邸/写真/01.jpg" alt="A邸 Exterior">
+        </a>
+    </div>
+    <div class="bento-item bento-md case-card">
+        <h3>A邸：光と風が抜ける大空間LDK</h3>
+        <div class="stats-grid">
+            <div class="stat-item"><span>築年数</span><b>35年</b></div>
+            <div class="stat-item"><span>家族構成</span><b>夫婦+子供2人</b></div>
+            <div class="stat-item"><span>工期</span><b>2.5ヶ月</b></div>
+            <div class="stat-item"><span>費用</span><b>約950万円</b></div>
+        </div>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/A邸/写真/02.JPG" class="work-popup" title="A邸：木のぬくもりを感じる内装">
+            <img src="建築写真素材/A邸/写真/02.JPG" alt="A邸 Interior 1">
+        </a>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/A邸/写真/04.JPG" class="work-popup" title="A邸：開放的な天井設計">
+            <img src="建築写真素材/A邸/写真/04.JPG" alt="A邸 Interior 2">
+        </a>
+    </div>
+    <div class="bento-item bento-md story-box">
+        <div class="story-content">
+            <strong>【お悩みと解決策】</strong>
+            細かく仕切られていた築35年の和室を統合し、広々としたLDKへ。構造上外せない梁をデザインとして見せる「あわし」の技法を採用し、高い天井と開放感を実現しました。
+        </div>
+    </div>
+</div>
+
+<div class="bento-group" data-category="Bマンション">
+    <div class="bento-item bento-lg">
+        <a href="建築写真素材/Bマンション/02.jpg" class="work-popup" title="Bマンション：モダンなリビング">
+            <img src="建築写真素材/Bマンション/02.jpg" alt="Bマンション Exterior">
+        </a>
+    </div>
+    <div class="bento-item bento-md case-card">
+        <h3>Bマンション：ホテルライクな浴室</h3>
+        <div class="stats-grid">
+            <div class="stat-item"><span>築年数</span><b>20年</b></div>
+            <div class="stat-item"><span>家族構成</span><b>夫婦2人</b></div>
+            <div class="stat-item"><span>工期</span><b>2週間</b></div>
+            <div class="stat-item"><span>費用</span><b>約250万円</b></div>
+        </div>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/Bマンション/06.jpg" class="work-popup" title="Bマンション：洗練されたサニタリー">
+            <img src="建築写真素材/Bマンション/06.jpg" alt="Bマンション Interior 1">
+        </a>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/Bマンション/08.jpg" class="work-popup" title="Bマンション：落ち着きのある寝室">
+            <img src="建築写真素材/Bマンション/08.jpg" alt="Bマンション Interior 2">
+        </a>
+    </div>
+    <div class="bento-item bento-md story-box">
+        <div class="story-content">
+            <strong>【お悩みと解決策】</strong>
+            冬場のタイルの冷たさと、掃除のしにくさが課題でした。断熱性能の高いシステムバスへ交換し、洗面台はあえて「造作」にすることで、生活感を出さないホテルのような空間に仕上げました。
+        </div>
+    </div>
+</div>
+
+<div class="bento-group" data-category="歯科">
+    <div class="bento-item bento-lg">
+        <a href="建築写真素材/久保田歯科/04.jpg" class="work-popup" title="久保田歯科医院：木の質感あふれる外観">
+            <img src="建築写真素材/久保田歯科/04.jpg" alt="Kubota Dental Exterior">
+        </a>
+    </div>
+    <div class="bento-item bento-md case-card">
+        <h3>久保田歯科医院：街に開かれた外観</h3>
+        <div class="stats-grid">
+            <div class="stat-item"><span>築年数</span><b>新築</b></div>
+            <div class="stat-item"><span>用途</span><b>歯科医院</b></div>
+            <div class="stat-item"><span>工期</span><b>4ヶ月</b></div>
+            <div class="stat-item"><span>構造</span><b>木造・平屋</b></div>
+        </div>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/久保田歯科/07.jpg" class="work-popup" title="久保田歯科医院：明るい受付スペース">
+            <img src="建築写真素材/久保田歯科/07.jpg" alt="Kubota Dental Interior 1">
+        </a>
+    </div>
+    <div class="bento-item bento-sm">
+        <a href="建築写真素材/久保田歯科/08.jpg" class="work-popup" title="久保田歯科医院：リラックスできる診察室">
+            <img src="建築写真素材/久保田歯科/08.jpg" alt="Kubota Dental Interior 2">
+        </a>
+    </div>
+    <div class="bento-item bento-md story-box">
+        <div class="story-content">
+            <strong>【コンセプト】</strong>
+            「歯医者さんらしくない、温かな場所」をテーマに、木材をふんだんに使用した外観デザイン。夜間は柔らかな照明が漏れる設計にし、地域住民の方々に安心感を与えるランドマークを目指しました。
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+      <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            if(menuToggle) {
+                menuToggle.addEventListener('change', function() {
+                    document.body.style.overflow = this.checked ? 'hidden' : '';
+                });
+            }
+
+            // Filter Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const bentoGroups = document.querySelectorAll('.bento-group');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    bentoGroups.forEach(group => {
+                        const category = group.getAttribute('data-category');
+                        if (filterValue === 'all' || filterValue === category) {
+                            group.style.display = 'grid';
+                            setTimeout(() => { group.style.opacity = '1'; }, 10);
+                        } else {
+                            group.style.opacity = '0';
+                            setTimeout(() => { group.style.display = 'none'; }, 400);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+	<script>
+$(document).ready(function() {
+    // Lặp qua từng bento-group để tạo gallery riêng cho mỗi công trình
+    $('.bento-group').each(function() {
+        $(this).magnificPopup({
+            delegate: 'a.work-popup', // Chỉ kích hoạt khi bấm vào thẻ a có class này
+            type: 'image',
+            gallery: {
+                enabled: true, // Bật chế độ lướt ảnh
+                tCounter: '<span class="mfp-counter">%curr% / %total%</span>' 
+            },
+            image: {
+                titleSrc: 'title' // Lấy chú thích ảnh từ thuộc tính title của thẻ <a>
+            },
+            mainClass: 'mfp-with-zoom', 
+            zoom: {
+                enabled: true,
+                duration: 300,
+                easing: 'ease-in-out'
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

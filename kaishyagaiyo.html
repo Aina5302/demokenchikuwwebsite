@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会社概要 - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css"> 
+    
+    <style>
+        /* CSS TÍCH HỢP RIÊNG CHO TRANG ABOUT */
+        .about-page {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        /* Khung xanh bao quát toàn bộ nội dung như ảnh mẫu */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #b5c4b5; /* Màu xanh lá sage */
+            padding: 50px;
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .about-title {
+            font-size: 2.2rem;
+            color: #4a6d4a;
+            border-bottom: 2px solid #4a6d4a;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            letter-spacing: 0.3em;
+        }
+
+        /* Bố cục phần bảng */
+        .about-content-wrapper {
+            display: flex;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 60px;
+        }
+
+        .about-table {
+            width: 70%;
+            border-collapse: collapse;
+        }
+
+        .about-table th, .about-table td {
+            padding: 12px 0;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: #333;
+        }
+
+        .about-table th { width: 180px; font-weight: bold; }
+
+        /* Ảnh tòa nhà vẽ nét nằm đè bên phải */
+        .about-illustration {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 450px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        .about-illustration img { width: 100%; }
+
+        /* Phần ごあいさつ nằm cùng trong khung xanh */
+        .philosophy-content {
+            display: flex;
+            gap: 1px;
+            border-top: 2px solid rgba(74, 109, 74, 0.3);
+            padding-top: 20px;
+			margin-top: 20px;
+            position: relative;
+            z-index: 2;
+			align-items: flex-start;
+        }
+
+        .philosophy-text { 
+			flex: 1;
+    		margin-top: 0;
+		}
+		.philosophy-text h2 {
+			margin-top: 0;
+		}
+
+        .philosophy-title {
+            font-size: 2rem;
+            color: #4a6d4a;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-title span {
+            font-size: 1.1rem;
+            display: block;
+            color: #6a8d6a;
+            font-weight: normal;
+        }
+
+        .philosophy-text p {
+            line-height: 1.9;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Khối ảnh bên phải phần lời chào */
+        .philosophy-images {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-end;
+        }
+
+        .building-photo img {
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .ceo-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 10px;
+			margin-right: 100px;
+        }
+
+        .ceo-img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .ceo-info { font-size: 0.9rem; color: #444; }
+		/* --- Footer --- */
+footer {
+    background-color: var(--green-light);
+    color: white;
+    padding-top: 40px;
+}
+
+.footer-top {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col ul li a {
+    display: block;
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-bottom {
+    background-color: var(--green-btn); 
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.75em;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--green-dark); 
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    z-index: 50;
+}
+
+/* --- MEDIA QUERIES (Gom vào cuối file) --- */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .cta-sections {
+        flex-direction: column;
+        margin-top: 20px; 
+        gap: 10px;
+    }
+
+    .cta-item {
+        margin: 0;
+        padding: 40px 10px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+    }
+    
+    .footer-col {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .about-content-wrapper, .philosophy-content { flex-direction: column; }
+            .about-table, .philosophy-text, .philosophy-images { width: 100%; }
+            .about-illustration { position: relative; width: 100%; right: 0; bottom: 0; margin-top: 20px; }
+            .about-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </label>
+                <div class="menu-items">
+                    <label for="menu-toggle" class="menu-close-btn"><i class="fas fa-arrow-left"></i> 戻る</label>
+                    <a href="homepage.html">ホーム</a>
+                    <a href="building.html">新築について</a>
+        			<a href="reform.html">リフォームについて</a>
+        			<a href="work.html">施工事例</a>
+        			<a href="question.html">よくある質問FAQ</a>
+        			<a href="staff.html">スタッフ紹介</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-page">
+            <div class="about-container">
+                
+                <h2 class="about-title">会 社 概 要</h2>
+                <div class="about-content-wrapper">
+                    <table class="about-table">
+                        <tr><th>会社名</th><td>読売工務店株式会社</td></tr>
+                        <tr><th>代表者名</th><td>Nguyen Thao Anh</td></tr>
+                        <tr><th>設立</th><td>2009年11月16日</td></tr>
+                        <tr><th>資本金</th><td>1,000万円</td></tr>
+                        <tr><th>所在地</th><td>〒108-0014 東京都港区芝5-26-16</td></tr>
+                        <tr><th>営業時間</th><td>平日 8時〜18時 日曜祝日</td></tr>
+                        <tr><th>TEL</th><td>03-3455-0221</td></tr>
+                        <tr><th>FAX</th><td>03-3455-0423</td></tr>
+                        <tr><th>事業内容</th><td>・一般住宅の設計・施工管理<br>・内装・インテリアの設計・施工管理</td></tr>
+                        <tr><th>許可番号</th><td>一級建築士登録 第-123456-号</td></tr>
+                        <tr><th>従業員数</th><td>3名</td></tr>
+                    </table>
+                    
+                    <div class="about-illustration">
+                        <img src="建築写真素材/building.png" alt="Building Sketch">
+                    </div>
+                </div>
+
+              <div class="philosophy-content">
+                    <div class="philosophy-text">
+                        <h2 class="philosophy-title">ごあいさつ<br><span>our philosophy</span></h2>
+                        <p>弊社では、お客様の求める最高の住まいを提供することを念頭に、設計にあたっております。</p>
+                        <p>本当に住みよい住宅は何かを常に探求し、建物お引渡し後も定期的に訪問しながら、今後の設計に役立てるべく日夜努力をしております。</p>
+                        <p>また、使用する木材も国産材にこだわり、日本の気候・風土に合った設計を心がけております。</p>
+						<p>最近では環境に配慮するため、自然素材を多用した住宅づくりに力を入れておりますので、シックハウス対策などお気軽にご相談ください。</p>
+                    </div>
+                    
+                    <div class="philosophy-images">
+                        <div class="building-photo">
+                            <img src="建築写真素材/久保田歯科/021.jpg" alt="House"> 
+                        </div>
+                        
+                        <div class="ceo-profile">
+                            <img src="建築写真素材/ceo.png" alt="CEO" class="ceo-img">
+                            <div class="ceo-info">
+                                <p>Name - Title :</p>
+                                <p>専務取締役</p>
+                                <p><strong>Nguyen Thao Anh</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

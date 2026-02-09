@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+	 <style>
+        /* MÀU CHỦ ĐẠO CỦA BẠN */
+        :root { --main-green: #4a6d4a; --light-green: #b5c4b5; --bg-soft: #f4f7f4; }
+
+        .reform-page { padding: 60px 0; background-color: #fff; color: #333; }
+        .container-narrow { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* HERO SECTION RIÊNG BIỆT */
+        .reform-hero { position: relative; margin-bottom: 80px; text-align: center; }
+        .reform-hero h2 { font-size: 2.5rem; color: var(--main-green); letter-spacing: 0.2em; margin-bottom: 20px; }
+        .reform-hero p { font-size: 1.1rem; line-height: 2; border-left: 3px solid var(--main-green); padding-left: 20px; display: inline-block; text-align: left; }
+
+        /* GRID DỊCH VỤ KIỂU CARD HIỆN ĐẠI */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 100px; }
+        .service-card { position: relative; overflow: hidden; border-radius: 12px; height: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .service-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .service-overlay { 
+            position: absolute; bottom: 0; left: 0; right: 0; 
+            background: linear-gradient(transparent, rgba(74, 109, 74, 0.9)); 
+            padding: 30px; color: #fff; transform: translateY(60px); transition: 0.4s; 
+        }
+        .service-card:hover img { transform: scale(1.1); }
+        .service-card:hover .service-overlay { transform: translateY(0); }
+        .service-overlay h3 { margin-bottom: 10px; font-size: 1.4rem; }
+        .service-overlay p { font-size: 0.85rem; opacity: 0; transition: 0.5s; }
+        .service-card:hover .service-overlay p { opacity: 1; }
+		 
+		 
+		 /* BEFORE & AFTER SECTION */
+.ba-section { padding: 80px 0; background-color: #fff; }
+.ba-title { text-align: center; margin-bottom: 50px; }
+.ba-title h3 { color: var(--main-green); font-size: 1.8rem; letter-spacing: 0.1em; }
+.ba-title p { color: #888; font-size: 0.9rem; margin-top: 10px; }
+
+.ba-grid { display: flex; flex-direction: column; gap: 40px; }
+.ba-item { display: flex; gap: 20px; align-items: center; }
+.ba-item.reverse { flex-direction: row-reverse; }
+
+.ba-photo-container { 
+    flex: 2; display: flex; gap: 10px; position: relative; 
+}
+.ba-photo { position: relative; flex: 1; overflow: hidden; border-radius: 4px; }
+.ba-photo img { width: 100%; height: 300px; object-fit: cover; transition: 0.5s; }
+.ba-photo span {  position: absolute; top: 15px; left: 15px;background: var(--main-green); color: #fff; padding: 5px 15px; font-size: 0.75rem; font-weight: bold; letter-spacing: 0.1em;  z-index: 2; border-radius: 2px;
+}
+
+.ba-info { flex: 1; padding: 0 20px; }
+.ba-info h4 { color: var(--main-green); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--light-green); display: inline-block; padding-bottom: 5px; }
+.ba-info p { font-size: 0.9rem; line-height: 1.8; color: #555; }
+
+/* Hiệu ứng hover nhẹ cho ảnh */
+.ba-photo:hover img { transform: scale(1.05); }
+
+@media (max-width: 768px) {
+    .ba-item, .ba-item.reverse { flex-direction: column; }
+    .ba-photo-container { width: 100%; }
+}
+
+        /* QUY TRÌNH KIỂU TIMELINE DỌC (KIẾN TRÚC HAY DÙNG) */
+        .timeline-section { background: var(--bg-soft); padding: 80px 0; border-radius: 50px 50px 0 0; }
+        .timeline { position: relative; margin: 40px 0; }
+        .timeline::before { content: ''; position: absolute; left: 50%; width: 2px; height: 100%; background: var(--light-green); transform: translateX(-50%); }
+        .timeline-item { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
+        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
+        .timeline-dot { position: absolute; width: 20px; height: 20px; background: var(--main-green); border-radius: 50%; top: 25px; z-index: 5; }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -10px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -10px; }
+        .timeline-content h4 { color: var(--main-green); font-size: 1.2rem; margin-bottom: 10px; }
+        .timeline-content p { font-size: 0.9rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 50px; }
+            .timeline-dot { left: 10px !important; }
+        }
+		 .hidden-photo {
+    display: none !important;
+}
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リフォームについて - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+   
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+                <span class="logo-text"></span>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+          <div class="hamburger-menu">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+    
+    <div class="menu-items">
+        <label for="menu-toggle" class="menu-close-btn">
+            <i class="fas fa-arrow-left"></i> 戻る
+        </label>
+        
+        <a href="homepage.html">ホーム</a>
+        <a href="building.html">新築について</a>
+        <a href="reform.html">リフォームについて</a>
+        <a href="work.html">施工事例</a>
+        <a href="question.html">よくある質問FAQ</a>
+        <a href="staff.html">スタッフ紹介</a>
+    </div>
+</div>
+        </div>
+    </header>
+
+    <main class="reform-page">
+        <section class="container-narrow">
+            <div class="reform-hero">
+                <h2>Reform</h2>
+                <p>住まいの記憶を大切に、<br>新しい価値を吹き込む。</p>
+            </div>
+
+          <div class="service-grid">
+    <div class="service-group">
+        <a href="建築写真素材/その他/02.jpg" class="service-popup" title="LDK Reform">
+            <div class="service-card">
+                <img src="建築写真素材/その他/02.jpg" alt="Kitchen">
+                <div class="service-overlay">
+                    <h3>LDK Reform</h3>
+                    <p>家族が集まる中心を、より明るく、開放的な空間へ。最新の設備 và 動線設計で家事を楽しくします。</p>
+                </div>
+            </div>
+        </a>
+        <a href="建築写真素材/その他/01.jpg" class="service-popup hidden-photo" title="LDK Reform - View 2"></a>
+        <a href="建築写真素材/その他/03.jpg" class="service-popup hidden-photo" title="LDK Reform - View 3"></a>
+    </div>
+
+    <div class="service-group">
+        <a href="建築写真素材/A邸/写真/06.JPG" class="service-popup" title="Sanitary">
+            <div class="service-card">
+                <img src="建築写真素材/A邸/写真/06.JPG" alt="Bath">
+                <div class="service-overlay">
+                    <h3>Sanitary</h3>
+                    <p>心からリラックスできる浴室、清潔感あふれるパウダールーム。一日の疲れを癒す場所を丁寧に整えます。</p>
+                </div>
+            </div>
+        </a>
+        <a href="建築写真素材/sanitary1.jpg" class="service-popup hidden-photo" title="Sanitary - View 2"></a>
+        <a href="建築写真素材/sanitary2.webp" class="service-popup hidden-photo" title="Sanitary - View 3"></a>
+    </div>
+
+    <div class="service-group">
+        <a href="建築写真素材/A邸施工写真/34内装.JPG" class="service-popup" title="Maintenance">
+            <div class="service-card">
+                <img src="建築写真素材/A邸施工写真/34内装.JPG" alt="Structure">
+                <div class="service-overlay">
+                    <h3>Maintenance</h3>
+                    <p>目に見えない構造部の補強や断熱改修. 家の寿命を延ばし、永く安心して住める品質を約束します。</p>
+                </div>
+            </div>
+        </a>
+        <a href="建築写真素材/A邸施工写真/29塗装ＷＳ.JPG" class="service-popup hidden-photo" title="Maintenance - View 2"></a>
+        <a href="建築写真素材/A邸施工写真/27焼杉.JPG" class="service-popup hidden-photo" title="Maintenance - View 3"></a>
+    </div>
+</div>
+
+        </section>
+
+		<section class="ba-section">
+    <div class="container-narrow">
+        <div class="ba-title">
+            <h3>CONSTRUCTION & COMPLETION</h3>
+            <p>現場の裏側から、理想の仕上がりまで</p>
+        </div>
+
+        <div class="ba-grid">
+            <div class="ba-item">
+                <div class="ba-photo-container">
+                    <div class="ba-photo">
+                        <span>CONSTRUCTION</span>
+                        <img src="建築写真素材/A邸施工写真/37散水実験.JPG" alt="Thi công khung">
+                    </div>
+                    <div class="ba-photo">
+                        <span>COMPLETED</span>
+                        <img src="建築写真素材/A邸/写真/07.JPG" alt="Hoàn thiện LDK">
+                    </div>
+                </div>
+                <div class="ba-info">
+                    <h4>住まいの骨組みを強くする</h4>
+                    <p><strong>【施工中】</strong> 既存の梁を補強し、断熱材を隙間なく充填。見えない部分の性能を極限まで高めます。</p>
+                    <p><strong>【完成】</strong> 柱や梁の意匠を活かした、開放的な吹き抜け空間が完成。家族が安心して集える場所に。</p>
+                </div>
+            </div>
+
+            <div class="ba-item reverse">
+                <div class="ba-photo-container">
+                    <div class="ba-photo">
+                        <span>CONSTRUCTION</span>
+                        <img src="建築写真素材/A邸施工写真/28塗装ＷＳ.JPG" alt="Thi công nội thất">
+                    </div>
+                    <div class="ba-photo">
+                        <span>COMPLETED</span>
+                        <img src="建築写真素材/A邸/写真/02.JPG" alt="Hoàn thiện nội thất">
+                    </div>
+                </div>
+                <div class="ba-info">
+                    <h4>職人の手仕事が光る空間</h4>
+                    <p><strong>【施工中】</strong> 現場でのミリ単位の微調整。使い勝手を考え、建具や棚を一つひとつ手作業で作り込みます。</p>
+                    <p><strong>【完成】</strong> 既製品にはない、住み手の手に馴染む木の質感が心地よい住まいへ。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+		
+       <section class="timeline-section">
+            <div class="container-narrow">
+                <h3 style="text-align:center; color:var(--main-green); margin-bottom:50px; letter-spacing: 0.1em;">REFORM FLOW</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>01. Consult</h4>
+                            <p>お客様のライフスタイルや、現在の住まいに対する想いをじっくり伺います。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>02. Plan and Design</h4>
+                            <p>建築士が現場を調査し、素材の質感から細部の収まりまでこだわった図面をご提案します。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>03. Construction</h4>
+                            <p>専属の職人が高い技術で施工。リフォーム特有の現場の変化にも柔軟に対応します。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>04. After Support</h4>
+                            <p>お引渡し後も、末永く快適に過ごしていただけるよう定期的な点검を実施します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社s</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+	<script>
+$(document).ready(function() {
+    // Chạy vòng lặp cho từng nhóm dịch vụ
+    $('.service-group').each(function() {
+        $(this).magnificPopup({
+            delegate: 'a.service-popup', 
+            type: 'image',
+            gallery: {
+                enabled: true, // Cho phép lướt ảnh
+                navigateByImgClick: true,
+                tCounter: '<span class="mfp-counter">%curr% / %total%</span>' // Hiển thị 1/3, 2/3...
+            },
+            mainClass: 'mfp-fade',
+            removalDelay: 300
+        });
+    });
+});
+</script>
+</body>
+</html>

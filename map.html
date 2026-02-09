@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アクセス - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css"> <style>
+        /* CSS TÍCH HỢP RIÊNG CHO TRANG ACCESS */
+        .access-page {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        /* Khung xanh đồng bộ với trang About */
+        .access-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #b5c4b5; /* Màu xanh lá sage đồng bộ */
+            padding: 50px;
+            border-radius: 4px;
+        }
+
+        .access-title {
+            font-size: 2.2rem;
+            color: #4a6d4a;
+            border-bottom: 2px solid #4a6d4a;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            letter-spacing: 0.3em;
+        }
+
+        /* Phần bản đồ */
+        .map-wrapper {
+            width: 100%;
+            height: 450px;
+            margin-bottom: 30px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Thông tin địa chỉ */
+        .access-info {
+            display: flex;
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .info-item {
+            flex: 1;
+        }
+
+        .info-item h3 {
+            color: #4a6d4a;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-left: 4px solid #4a6d4a;
+            padding-left: 10px;
+        }
+
+        .info-item p {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Footer bổ sung theo yêu cầu (3 cột như About) */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .access-info { flex-direction: column; }
+            .access-container { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="work.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </label>
+                <div class="menu-items">
+                    <label for="menu-toggle" class="menu-close-btn"><i class="fas fa-arrow-left"></i> 戻る</label>
+                    <a href="homepage.html">ホーム</a>
+                    <a href="building.html">新築について</a>
+        			<a href="reform.html">リフォームについて</a>
+        			<a href="work.html">施工事例</a>
+        			<a href="question.html">よくある質問FAQ</a>
+        			<a href="staff.html">スタッフ紹介</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="access-page">
+        <div class="access-container">
+            <h2 class="access-title">ア ク セ ス</h2>
+            
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.025219213136!2d139.745543115258!3d35.64559898020228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bb720641369%3A0x67340326442111d!2z44CSMTA4LTAwMTQgVG9reW8sIE1pbmF0byBDaXR5LCBTaGliaSwgNS1jaMWNbWXiiJIyNuKIkjE2!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="access-info">
+                <div class="info-item">
+                    <h3>所在地</h3>
+                    <p>〒108-0014<br>東京都港区芝5-26-16</br>読売工務店ビル 4F<br>TEL：03-3455-0221</br>平日9:00-17:00</p>
+                </div>
+                <div class="info-item">
+                    <h3>交通アクセス</h3>
+                    <p>・JR山手線・京浜東北線「田町」駅 三田口より徒歩5分</p>
+                    <p>・都営浅草線・三田線「三田」駅 A3出口より徒歩3分</p>
+				
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>

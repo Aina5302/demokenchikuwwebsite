@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    
+    <style>
+        :root {
+            --main-green: #4a6d4a;
+            --light-green: #b5c4b5;
+            --bg-soft: #f8faf8;
+        }
+
+        .faq-page { padding: 60px 0; background-color: #fff; }
+        .container-sm { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        .page-header { text-align: center; margin-bottom: 60px; }
+        .page-header h2 { font-size: 2.2rem; color: var(--main-green); letter-spacing: 0.2em; text-transform: uppercase; }
+
+        /* FAQ Category Title */
+        .faq-category { margin-top: 40px; margin-bottom: 20px; border-left: 4px solid var(--main-green); padding-left: 15px; }
+        .faq-category h3 { font-size: 1.2rem; color: #333; }
+
+        /* Accordion Style */
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question {
+            width: 100%; padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+            background: none; border: none; cursor: pointer; text-align: left;
+            font-size: 1rem; font-weight: 700; color: #444; transition: 0.3s;
+        }
+        .faq-question:hover { color: var(--main-green); }
+        .faq-question i { font-size: 0.8rem; transition: 0.3s; color: var(--light-green); }
+
+        /* Answer Area */
+        .faq-answer { 
+            max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            background-color: var(--bg-soft); border-radius: 4px;
+        }
+        .answer-content { padding: 20px; font-size: 0.9rem; line-height: 1.8; color: #555; }
+
+        /* Active State */
+        .faq-item.active .faq-answer { max-height: 1000px; transition: max-height 1s ease-in-out; }
+        .faq-item.active .faq-question { color: var(--main-green); }
+        .faq-item.active i { transform: rotate(180deg); }
+
+        /* Highlight "Q" and "A" */
+        .q-mark { color: var(--main-green); margin-right: 10px; font-style: italic; }
+		/* QUICK INQUIRY FORM SECTION */
+.faq-contact-section {
+    background-color: var(--bg-soft);
+    padding: 80px 0;
+    margin-top: 60px;
+    border-radius: 50px 50px 0 0;
+}
+.contact-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.contact-card h3 {
+    text-align: center;
+    color: var(--main-green);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+.contact-card p {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #444;
+}
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--main-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 109, 74, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--main-green);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+.submit-btn:hover {
+    background-color: #3d5a3d;
+    transform: translateY(-2px);
+}
+/* MODAL THÔNG BÁO */
+.sent-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* Ẩn mặc định */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-content i {
+    font-size: 4rem;
+    color: var(--main-green);
+    margin-bottom: 20px;
+}
+
+.modal-content h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.close-modal-btn {
+    background: var(--main-green);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes popUp {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+    </style>
+</head>
+<body>
+ <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+                <span class="logo-text"></span>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+          <div class="hamburger-menu">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </label>
+    
+    <div class="menu-items">
+        <label for="menu-toggle" class="menu-close-btn">
+            <i class="fas fa-arrow-left"></i> 戻る
+        </label>
+        
+        <a href="homepage.html">ホーム</a>
+        <a href="building.html">新築について</a>
+        <a href="reform.html">リフォームについて</a>
+        <a href="work.html">施工事例</a>
+        <a href="question.html">よくある質問FAQ</a>
+        <a href="staff.html">スタッフ紹介</a>
+    </div>
+</div>
+        </div>
+    </header>
+    <main class="faq-page">
+        <div class="container-sm">
+            <div class="page-header">
+                <h2>FAQ</h2>
+                <p>よくある質問</p>
+            </div>
+
+            <div class="faq-category">
+                <h3>費用・ご契約について</h3>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><span class="q-mark">Q.</span>相談や見積もりは無料ですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            はい、初回のご相談から現地調査、プランのご提案とお見積もりまでは無料で承っております。まずはお気軽にお問い合わせください。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><span class="q-mark">Q.</span>予算が決まっているのですが、その範囲内で提案してもらえますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            もちろんです。ご予算に合わせて、優先順位を整理しながら最適な素材や工法をご提案させていただきます。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3>工事・期間について</h3>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><span class="q-mark">Q.</span>リフォーム中、住みながらの工事は可能ですか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            部分的なリフォームであれば可能です。ただし、水回り（キッチンや浴室）の全面工事や大規模な間取り変更の場合は、一時的な仮住まいをお勧めする場合もございます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><span class="q-mark">Q.</span>工事期間はどのくらいかかりますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            内容によりますが、キッチンや浴室の交換は3日〜1週間、全面リノベーションの場合は1〜2ヶ月程度が目安となります。詳細は工程表を作成してご説明いたします.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-category">
+                <h3>アフターサポート</h3>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span><span class="q-mark">Q.</span>工事後の保証はありますか？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="answer-content">
+                            はい、独自の工事保証書を発行しております。また、設備機器についてはメーカー保証が付随します。引き渡し後の不具合にも迅速に対応いたしますのでご安心ください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+	<section class="faq-contact-section">
+        <div class="container-sm">
+            <div class="contact-card">
+                <h3>解決しない場合はこちら</h3>
+                <p>疑問や不安な点など, どんな些細なことでもお気軽にご相談ください。<br>専門スタッフが丁寧にお答えいたします。</p>
+                
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" name="name" placeholder="例：山田 太郎" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">ご質問・ご相談内容</label>
+                        <textarea id="message" name="message" rows="5" placeholder="リフォームの費用感や工期についてなど, 自由にご記入ください。" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">この内容で送信する</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="thankYouModal" class="sent-modal">
+    <div class="modal-content">
+        <i class="fas fa-check-circle"></i>
+        <h4>送信完了いたしました</h4>
+        <p>お問い合わせありがとうございます。<br>内容を確認の上、担当者より数日以内に折り返しご連絡させていただきます。</p>
+        <button class="close-modal-btn" onclick="closeModal()">閉じる</button>
+    </div>
+</div>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+	
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+		document.querySelector('.contact-card form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Ngăn trang web load lại
+
+    // Hiển thị Modal
+    const modal = document.getElementById('thankYouModal');
+    modal.style.display = 'flex';
+
+    // Reset Form sau khi gửi
+    this.reset();
+});
+
+function closeModal() {
+    const modal = document.getElementById('thankYouModal');
+    modal.style.display = 'none';
+}
+
+// Đóng modal khi click ra ngoài vùng trắng
+window.onclick = function(event) {
+    const modal = document.getElementById('thankYouModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+    </script>
+	
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新築について - 読売工務店</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+
+    <style>
+        .new-build-page {
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+
+        .new-build-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #b5c4b5; /* Màu xanh sage đồng bộ */
+            padding: 50px;
+            border-radius: 4px;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            color: #4a6d4a;
+            border-bottom: 2px solid #4a6d4a;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+            letter-spacing: 0.3em;
+        }
+
+        /* Phần Concept chính */
+        .concept-section {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .concept-image {
+            flex: 1;
+        }
+
+        .concept-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 10px 10px 0 rgba(74, 109, 74, 0.2);
+        }
+
+        .concept-text {
+            flex: 1;
+        }
+
+        .concept-text h3 {
+            font-size: 1.8rem;
+            color: #4a6d4a;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .concept-text p {
+            line-height: 2;
+            color: #333;
+        }
+
+        /* Phần 3 bước quy trình (Step) */
+        .process-title {
+            text-align: center;
+            color: #4a6d4a;
+            margin: 60px 0 30px;
+            font-size: 1.5rem;
+        }
+
+/* Container chính của Process */
+.process-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Từng ô hình chữ nhật nhỏ */
+.process-item {
+    flex: 1;
+    background: #e1e8e1;
+    border-radius: 8px;
+    overflow: hidden; /* Giữ ảnh không lòi ra ngoài khi đang lướt */
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Nội dung chữ */
+.item-content {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi di chuột vào: Chữ biến mất và hơi thu nhỏ lại */
+.process-item:hover .item-content {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Container chứa ảnh */
+.item-photo-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item-photo-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Mặc định ẩn */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* THIẾT LẬP VỊ TRÍ CHUẨN BỊ TRƯỢT */
+.slide-1 {
+    transform: translateX(-100%); /* Nằm chờ bên trái khung */
+}
+
+.slide-2 {
+    transform: translateX(100%); /* Nằm chờ bên phải khung */
+}
+
+/* HIỆU ỨNG KHI HOVER */
+
+/* 1. Ảnh 1 trượt từ trái vào ngay lập tức */
+.process-item:hover .slide-1 {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+    transition-delay: 0s;
+}
+
+/* 2. Ảnh 2 trượt từ phải vào sau 2 giây (đè lên ảnh 1) */
+.process-item:hover .slide-2 {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 3;
+    transition-delay: 2s; /* Đúng 2s như bạn yêu cầu */
+}
+        /* Mobile */
+        @media (max-width: 768px) {
+            .concept-section, .process-grid { flex-direction: column; }
+            .new-build-container { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+     <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Công ty" class="logo-img">
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </label>
+                <div class="menu-items">
+                    <label for="menu-toggle" class="menu-close-btn"><i class="fas fa-arrow-left"></i> 戻る</label>
+                    <a href="homepage.html">ホーム</a>
+                    <a href="building.html">新築について</a>
+        			<a href="reform.html">リフォームについて</a>
+        			<a href="work.html">施工事例</a>
+        			<a href="question.html">よくある質問FAQ</a>
+        			<a href="staff.html">スタッフ紹介</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="new-build-page">
+        <div class="new-build-container">
+            <h2 class="page-title">新築について</h2>
+
+            <section class="concept-section">
+                <div class="concept-image">
+                    <img src="建築写真素材/A邸/写真/03.JPG" alt="New Build Concept"> 
+                </div>
+                <div class="concept-text">
+                    <h3>「家族の絆を深める、<br>呼吸する木の家」</h3>
+                    <p>
+                        私たちは、ただ建物を建てるのではありません。そこに住むご家族の10年後、20年後の暮らしを想像しながら、一棟一棟丁寧に設計・施工いたします。
+                    </p>
+                    <p>
+                        厳選された国産材を使用し、日本の風土に合った伝統的な技法と、現代の快適な住み心地を融合させた理想の住まいをご提案します。
+                    </p>
+                </div>
+            </section>
+
+            <h3 class="process-title">家づくりの流れ</h3>
+            
+        <div class="process-grid">
+    <div class="process-item">
+        <div class="item-content">
+            <span class="step-number" style="background:#4a6d4a; color:#fff; padding:5px 12px; border-radius:50%; display:inline-block; margin-bottom:10px;">01</span>
+            <h4 style="color:#4a6d4a; margin-bottom:15px;">ヒアリング</h4>
+            <p style="font-size:14px; line-height:1.6;">お客様のライフスタイルや理想の暮らしをじっくりとお伺いします。</p>
+        </div>
+        <div class="item-photo-slide">
+            <img src="建築写真素材/Image (29).jpg" alt="Photo 1" class="slide-1">
+            <img src="建築写真素材/Image (29).jpg" alt="Photo 2" class="slide-2">
+        </div>
+    </div>
+
+    <div class="process-item">
+        <div class="item-content">
+            <span class="step-number" style="background:#4a6d4a; color:#fff; padding:5px 12px; border-radius:50%; display:inline-block; margin-bottom:10px;">02</span>
+            <h4 style="color:#4a6d4a; margin-bottom:15px;">プラン提案</h4>
+            <p style="font-size:14px; line-height:1.6;">敷地調査に基づき、最適な間取りとデザインをご提案いたします。</p>
+        </div>
+        <div class="item-photo-slide">
+            <img src="建築写真素材/A邸施工写真/13建て方.JPG" alt="Photo 3" class="slide-1">
+            <img src="建築写真素材/A邸施工写真/26内装打合せ.JPG" alt="Photo 4" class="slide-2">
+        </div>
+    </div>
+
+    <div class="process-item">
+        <div class="item-content">
+            <span class="step-number" style="background:#4a6d4a; color:#fff; padding:5px 12px; border-radius:50%; display:inline-block; margin-bottom:10px;">03</span>
+            <h4 style="color:#4a6d4a; margin-bottom:15px;">施工・管理</h4>
+            <p style="font-size:14px; line-height:1.6;">熟練の職人が、細部までこだわり抜いて確実な施工を行います。</p>
+        </div>
+        <div class="item-photo-slide">
+            <img src="建築写真素材/A邸/写真/04.JPG" alt="Photo 5" class="slide-1">
+            <img src="建築写真素材/A邸/写真/03.JPG" alt="Photo 6" class="slide-2">
+        </div>
+    </div>
+</div>
+</div>
+    </main>
+
+   <footer>
+        <div class="footer-top">
+            <div class="footer-links">
+                <div class="footer-col">
+                    <ul>
+                        <li><a href="building.html">新築について</a></li>
+                        <li><a href="reform.html">リフォームについて</a></li>
+                        <li><a href="work.html">施工事例</a></li>
+                        <li><a href="question.html">よくある質問</a></li>
+                        <li><a href="staff.html">スタッフ紹介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <ul>
+                    <li><a href="homepage.html">ホーム</a></li> 
+                    <li><a href="kaishyagaiyo.html">会社概要</a></li>
+                    <li><a href="map.html">アクセス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-info">
+                    <p><strong>読売工務店株式会社</strong></p>
+                    <p>〒153-6514 東京都渋谷区25-24-16</p>
+                    <p>TEL: 03-3455-0221</p>
+                    <p>一級建築士事務所</p>
+                    <p>東京都知事登録 第 12345-号</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights + Yomiuri Architect Office All Rights Reserved.</p>
+        </div>
+    </footer>
+    <a href="#top" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
